@@ -1,6 +1,6 @@
-# Varta Assistant 💬
+# TalkPilot-AI-Chatbot 💬
 
-Varta Assistant is a production-ready, beginner-friendly MERN stack application featuring an **embeddable AI chatbot widget** for websites, interactive **visitor onboarding**, a **smart context system** (powered by the Groq API), and a clean public **admin portal** for analytics and conversation logs.
+TalkPilot-AI-Chatbot is a production-ready, beginner-friendly MERN stack application featuring an **embeddable AI chatbot widget** for websites, interactive **visitor onboarding**, a **smart context system** (powered by the Groq API), and a clean public **admin portal** for analytics and conversation logs.
 
 This project is built with **simplicity** and **readability** as the first priority. It uses pure JavaScript, avoids overengineering, integrates Bootstrap for sleek responsive UI layouts, and utilizes a simple password gate for admin protection.
 
@@ -20,7 +20,7 @@ This project is built with **simplicity** and **readability** as the first prior
 ## 📁 Project Directory Structure
 
 ```text
-varta-assistant/
+talkpilot-ai-chatbot/
 ├── frontend/             # React SPA (Vite, Bootstrap, Custom Router)
 │   ├── src/
 │   │   ├── components/
@@ -49,14 +49,14 @@ varta-assistant/
 
 ### 1. Prerequisites
 - **Node.js** (v16+) installed.
-- **MongoDB** running locally (`mongodb://127.0.0.1:27017/varta_assistant`) or a MongoDB Atlas URI.
+- **MongoDB** running locally (`mongodb://127.0.0.1:27017/talkpilot_ai_chatbot`) or a MongoDB Atlas URI.
 - A **Groq API Key** (generate one for free at the [Groq Console](https://console.groq.com/)).
 
 ### 2. Configure Environment Variables
 Navigate to the `server/` directory, copy `.env.example` to `.env`, and fill in your details:
 ```bash
 PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/varta_assistant
+MONGO_URI=mongodb://127.0.0.1:27017/talkpilot_ai_chatbot
 GROQ_API_KEY=your_actual_groq_api_key_here
 ADMIN_PASSWORD=varta123
 ```

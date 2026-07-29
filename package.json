@@ -1,7 +1,7 @@
 {
-  "name": "varta-assistant-root",
+  "name": "talkpilot-ai-chatbot-root",
   "version": "1.0.0",
-  "description": "Varta Assistant MERN Workspace",
+  "description": "TalkPilot-AI-Chatbot MERN Workspace",
   "scripts": {
     "install-all": "npm install && npm install --prefix server && npm install --prefix frontend",
     "server": "npm run dev --prefix server",

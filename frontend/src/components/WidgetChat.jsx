@@ -8,8 +8,8 @@ const API_BASE = window.location.port === '5173'
   : '/api';
 
 export default function WidgetChat() {
-  const [visitorId, setVisitorId] = useState(localStorage.getItem('varta_visitor_id') || '');
-  const [visitorName, setVisitorName] = useState(localStorage.getItem('varta_visitor_name') || '');
+  const [visitorId, setVisitorId] = useState(localStorage.getItem('talkpilot_visitor_id') || '');
+  const [visitorName, setVisitorName] = useState(localStorage.getItem('talkpilot_visitor_name') || '');
   const [conversationId, setConversationId] = useState('');
   
   // Onboarding state
@@ -81,8 +81,8 @@ export default function WidgetChat() {
       const data = await res.json();
       if (res.ok) {
         // Save to state and localStorage
-        localStorage.setItem('varta_visitor_id', data.visitorId);
-        localStorage.setItem('varta_visitor_name', data.visitorName);
+        localStorage.setItem('talkpilot_visitor_id', data.visitorId);
+        localStorage.setItem('talkpilot_visitor_name', data.visitorName);
         setVisitorId(data.visitorId);
         setVisitorName(data.visitorName);
         setConversationId(data.conversationId);
@@ -185,14 +185,14 @@ export default function WidgetChat() {
 
   // Send window postMessage to host browser site to close this iframe
   const closeChatWidget = () => {
-    window.parent.postMessage('varta-close-chat', '*');
+    window.parent.postMessage('talkpilot-close-chat', '*');
   };
 
   // Clear session / Reset onboarding for developer testing
   const resetOnboarding = () => {
     if (window.confirm('Reset onboarding and clear chat?')) {
-      localStorage.removeItem('varta_visitor_id');
-      localStorage.removeItem('varta_visitor_name');
+      localStorage.removeItem('talkpilot_visitor_id');
+      localStorage.removeItem('talkpilot_visitor_name');
       setVisitorId('');
       setVisitorName('');
       setConversationId('');
@@ -212,7 +212,7 @@ export default function WidgetChat() {
           <div className="d-flex justify-content-between align-items-center pb-3 border-bottom mb-4">
             <div className="d-flex align-items-center gap-2">
               <span className="fs-4">💬</span>
-              <h5 className="mb-0 fw-bold text-dark">VaartaAI Chat bot</h5>
+              <h5 className="mb-0 fw-bold text-dark">TalkPilot-AI-Chatbot</h5>
             </div>
             <button className="btn btn-sm btn-light border-0" onClick={closeChatWidget} title="Close Widget">
               <i className="bi bi-x-lg text-secondary"></i>
@@ -287,7 +287,7 @@ export default function WidgetChat() {
         <div className="d-flex align-items-center gap-2">
           <span className="fs-4">💬</span>
           <div>
-            <h6 className="mb-0 fw-bold text-dark">VaartaAI Chat bot</h6>
+            <h6 className="mb-0 fw-bold text-dark">TalkPilot-AI-Chatbot</h6>
             <span className="badge bg-success-subtle text-success border border-success-subtle py-1" style={{ fontSize: '0.7rem' }}>
               Speaking to {visitorName}
             </span>

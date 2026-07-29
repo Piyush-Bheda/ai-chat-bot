@@ -1,7 +1,7 @@
 (function() {
   // Prevent duplicate script loads
-  if (window.VartaWidgetInitialized) return;
-  window.VartaWidgetInitialized = true;
+  if (window.TalkPilotWidgetInitialized) return;
+  window.TalkPilotWidgetInitialized = true;
 
   // 1. Proactively determine the backend host server based on this script's loaded location
   // This allows the widget to be embedded anywhere (production or local) without hardcoding domains.
@@ -17,7 +17,7 @@
   // 2. Inject CSS Styles directly into host head
   const css = `
     /* Floating Launcher Button */
-    #varta-launcher {
+    #talkpilot-launcher {
       position: fixed;
       bottom: 20px;
       right: 20px;
@@ -33,16 +33,16 @@
       z-index: 999999;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    #varta-launcher:hover {
+    #talkpilot-launcher:hover {
       transform: scale(1.08) rotate(5deg);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     }
-    #varta-launcher:active {
+    #talkpilot-launcher:active {
       transform: scale(0.95);
     }
     
     /* Launcher SVGs */
-    #varta-launcher svg {
+    #talkpilot-launcher svg {
       width: 28px;
       height: 28px;
       fill: none;
@@ -52,12 +52,12 @@
       stroke-linejoin: round;
       transition: transform 0.3s ease;
     }
-    #varta-launcher .varta-icon-close {
+    #talkpilot-launcher .talkpilot-icon-close {
       display: none;
     }
 
     /* Floating Chat Container (Holds Iframe) */
-    #varta-container {
+    #talkpilot-container {
       position: fixed;
       bottom: 95px;
       right: 20px;
@@ -76,7 +76,7 @@
       transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    #varta-container.varta-visible {
+    #talkpilot-container.talkpilot-visible {
       display: block;
       opacity: 1;
       transform: translateY(0) scale(1);
@@ -84,7 +84,7 @@
 
     /* Responsive adjustments for mobile views */
     @media (max-width: 480px) {
-      #varta-container {
+      #talkpilot-container {
         width: 100vw;
         height: 100vh;
         max-width: 100%;
@@ -93,18 +93,18 @@
         right: 0;
         border-radius: 0;
       }
-      #varta-container.varta-visible {
+      #talkpilot-container.talkpilot-visible {
         bottom: 0;
         right: 0;
       }
-      #varta-launcher.varta-chat-open {
+      #talkpilot-launcher.talkpilot-chat-open {
         bottom: 15px;
         right: 15px;
         background: #ef4444; /* Give a noticeable red exit color on mobile top layers if floating */
       }
     }
 
-    #varta-iframe {
+    #talkpilot-iframe {
       width: 100%;
       height: 100%;
       border: none;
@@ -118,15 +118,15 @@
 
   // 3. Create Launcher DOM element
   const launcher = document.createElement('div');
-  launcher.id = 'varta-launcher';
-  launcher.setAttribute('title', 'Chat with Varta Assistant');
+  launcher.id = 'talkpilot-launcher';
+  launcher.setAttribute('title', 'Chat with TalkPilot-AI-Chatbot');
   launcher.innerHTML = `
     <!-- Bubble Chat Icon -->
-    <svg class="varta-icon-chat" viewBox="0 0 24 24">
+    <svg class="talkpilot-icon-chat" viewBox="0 0 24 24">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
     </svg>
     <!-- Close Cross Icon -->
-    <svg class="varta-icon-close" viewBox="0 0 24 24">
+    <svg class="talkpilot-icon-close" viewBox="0 0 24 24">
       <line x1="18" y1="6" x2="6" y2="18"></line>
       <line x1="6" y1="6" x2="18" y2="18"></line>
     </svg>
@@ -135,10 +135,10 @@
 
   // 4. Create Chat Widget Iframe Container DOM element
   const container = document.createElement('div');
-  container.id = 'varta-container';
+  container.id = 'talkpilot-container';
   
   const iframe = document.createElement('iframe');
-  iframe.id = 'varta-iframe';
+  iframe.id = 'talkpilot-iframe';
   iframe.src = iframeUrl;
   iframe.setAttribute('allow', 'clipboard-write'); // Allows message copying in iframe
   
@@ -150,29 +150,29 @@
 
   function toggleChat() {
     isChatOpen = !isChatOpen;
-    const chatIcon = launcher.querySelector('.varta-icon-chat');
-    const closeIcon = launcher.querySelector('.varta-icon-close');
+    const chatIcon = launcher.querySelector('.talkpilot-icon-chat');
+    const closeIcon = launcher.querySelector('.talkpilot-icon-close');
 
     if (isChatOpen) {
       container.style.display = 'block';
       // Reflow browser render to allow transition
       container.offsetHeight;
-      container.classList.add('varta-visible');
-      launcher.classList.add('varta-chat-open');
+      container.classList.add('talkpilot-visible');
+      launcher.classList.add('talkpilot-chat-open');
       chatIcon.style.display = 'none';
       closeIcon.style.display = 'block';
       
       // Focus on the iframe if input onboarding is loaded
       iframe.focus();
     } else {
-      container.classList.remove('varta-visible');
-      launcher.classList.remove('varta-chat-open');
+      container.classList.remove('talkpilot-visible');
+      launcher.classList.remove('talkpilot-chat-open');
       chatIcon.style.display = 'block';
       closeIcon.style.display = 'none';
       
       // Hide layout after smooth transition is done
       setTimeout(() => {
-        if (!container.classList.contains('varta-visible')) {
+        if (!container.classList.contains('talkpilot-visible')) {
           container.style.display = 'none';
         }
       }, 300);
@@ -183,7 +183,7 @@
 
   // Listen to messages from inside the iframe (e.g. if we add a close button inside the React widget)
   window.addEventListener('message', function(event) {
-    if (event.data === 'varta-close-chat') {
+    if (event.data === 'talkpilot-close-chat') {
       if (isChatOpen) toggleChat();
     }
   });

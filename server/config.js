@@ -1,4 +1,4 @@
-// Configuration parameters for Varta Assistant
+// Configuration parameters for TalkPilot-AI-Chatbot
 module.exports = {
   // Simple hardcoded admin password checked by the frontend JavaScript prompt
   ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || "varta123",

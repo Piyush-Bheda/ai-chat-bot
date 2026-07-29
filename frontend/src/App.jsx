@@ -30,9 +30,9 @@ function App() {
       <div className="row justify-content-center">
         <div className="col-md-8 text-center">
           <div className="card shadow-sm border-0 p-5 bg-white">
-            <h1 className="display-5 fw-bold text-dark mb-3">💬 VaartaAI Hub</h1>
+            <h1 className="display-5 fw-bold text-dark mb-3">💬 TalkPilot-AI-Chatbot Hub</h1>
             <p className="lead text-muted mb-4" style={{ fontSize: '1.05rem' }}>
-              Welcome to the MERN development dashboard for the <strong>VaartaAI</strong> chatbot widget.
+              Welcome to the MERN development dashboard for the <strong>TalkPilot-AI-Chatbot</strong> widget.
               Below are the routes to test the chat widget frame and admin dashboard directly.
             </p>
             <div className="d-flex justify-content-center gap-3">
@@ -53,7 +53,7 @@ function App() {
               </ul>
             </div>
             <div className="text-center pt-3 border-top mt-4 text-muted small" style={{ fontSize: '0.8rem' }}>
-              Powered by <span className="fw-semibold">VaartaAI</span>
+              Powered by <span className="fw-semibold">TalkPilot-AI-Chatbot</span>
             </div>
           </div>
         </div>

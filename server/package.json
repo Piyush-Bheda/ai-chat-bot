@@ -1,7 +1,7 @@
 {
-  "name": "varta-assistant-server",
+  "name": "talkpilot-ai-chatbot-server",
   "version": "1.0.0",
-  "description": "Backend server for Varta Assistant chatbot",
+  "description": "Backend server for TalkPilot-AI-Chatbot",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
