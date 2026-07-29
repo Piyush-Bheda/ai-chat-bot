@@ -184,3 +184,4 @@ This generates a static bundle inside `frontend/dist/`. The Express backend serv
    - `MONGO_URI` = your MongoDB connection string
    - `GROQ_API_KEY` = your Groq API key
    - `ADMIN_PASSWORD` = your custom password (defaults to `varta123`)
+# ai-chat-bot
