@@ -185,3 +185,4 @@ This generates a static bundle inside `frontend/dist/`. The Express backend serv
    - `GROQ_API_KEY` = your Groq API key
    - `ADMIN_PASSWORD` = your custom password (defaults to `varta123`)
 # ai-chat-bot
+# ai-chat-bot
